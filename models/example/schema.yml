@@ -1,6 +1,57 @@
 
 version: 2
 
+# models:
+#   - name: student1
+#     description: "A starter dbt model"
+#     columns:
+#       - name: Grade
+#         description: "The primary key for this table"
+#         tests:
+#           - unique
+#           - not_null
+#           - accepted_values:
+#               values: ['A', 'B', 'C','F']
+          
+          
+# models:
+#   - name: orders1
+#     columns:
+#       - name: customer_id
+#         tests:
+#           - relationships:
+#               to: ref('customer1')
+#               field: customer_id
+
+
+
+
+
+
+models:
+  - name: customer1
+    columns:
+      - name: customer_id
+        tests:
+          - unique:
+              config:
+                severity: warn
+                error_if: ">0"
+                warn_if: ">0"
+ 
+
+
+
+ 
+# models:
+#   - name: customer1
+#     materialized: table  # Specify the desired materialization type
+#     ...
+
+
+
+version: 2
+
 models:
   - name: customers_model
     description: "A starter dbt model"
@@ -10,5 +61,3 @@ models:
         tests:
           - unique
           - not_null
-
- 
